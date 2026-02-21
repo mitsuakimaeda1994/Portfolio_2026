@@ -12,7 +12,6 @@ function normalizeYouTubeId(value) {
   if (!value) return "";
   const raw = String(value).trim();
 
-  // すでにIDの場合（共有URLの ?si= などはここで除去）
   if (!raw.includes("youtube.com") && !raw.includes("youtu.be")) {
     return raw.split("?")[0].split("&")[0].trim();
   }
@@ -33,11 +32,18 @@ function normalizeYouTubeId(value) {
       if (markerIndex >= 0 && parts[markerIndex + 1]) return parts[markerIndex + 1];
     }
   } catch {
-    // URLとして解釈できない場合はIDとして扱う
     return raw.split("?")[0].split("&")[0].trim();
   }
 
   return "";
+}
+
+function getThumbnailUrl(videoId) {
+  return `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`;
+}
+
+function getThumbnailFallbackUrl(videoId) {
+  return `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
 }
 
 function buildFilters() {
@@ -85,17 +91,27 @@ function renderWorks(filterTag = null) {
     const card = document.createElement("article");
     card.className = "workCard";
 
-    const playerWrap = document.createElement("div");
-    playerWrap.className = "videoWrap";
+    const link = document.createElement("a");
+    link.className = "videoLink";
+    link.href = `https://www.youtube.com/watch?v=${videoId}`;
+    link.target = "_blank";
+    link.rel = "noreferrer";
+    link.setAttribute("aria-label", `${w.title || "YouTube video"} をYouTubeで開く`);
 
-    const iframe = document.createElement("iframe");
-    iframe.src = `https://www.youtube.com/embed/${videoId}?rel=0&modestbranding=1&playsinline=1&iv_load_policy=3`;
-    iframe.title = w.title || "YouTube video";
-    iframe.loading = "lazy";
-    iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
-    iframe.allowFullscreen = true;
+    const thumbWrap = document.createElement("div");
+    thumbWrap.className = "videoWrap";
 
-    playerWrap.appendChild(iframe);
+    const img = document.createElement("img");
+    img.className = "videoThumb";
+    img.loading = "lazy";
+    img.alt = w.title || "YouTube thumbnail";
+    img.src = getThumbnailUrl(videoId);
+    img.onerror = () => {
+      img.src = getThumbnailFallbackUrl(videoId);
+    };
+
+    thumbWrap.appendChild(img);
+    link.appendChild(thumbWrap);
 
     const body = document.createElement("div");
     body.className = "workBody";
@@ -121,7 +137,7 @@ function renderWorks(filterTag = null) {
     body.appendChild(p);
     body.appendChild(tags);
 
-    card.appendChild(playerWrap);
+    card.appendChild(link);
     card.appendChild(body);
 
     grid.appendChild(card);

@@ -372,10 +372,32 @@ main {
   border-bottom-color: var(--text);
 }
 
+.videoLink {
+  display: block;
+}
+
 .videoWrap {
   width: 100%;
   aspect-ratio: 16 / 9;
   background: #fafafa;
+  overflow: hidden;
+}
+
+.videoThumb {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.2s ease;
+}
+
+.videoLink:hover .videoThumb {
+  transform: scale(1.02);
+}
+
+.videoLink:focus-visible {
+  outline: 2px solid #111111;
+  outline-offset: 3px;
 }
 
 .videoWrap iframe {
