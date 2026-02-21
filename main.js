@@ -1,5 +1,8 @@
 const $ = (q) => document.querySelector(q);
 
+const ACCESS_KEY = "portfolio_access_ok";
+const SITE_PASSWORD = "pf_mm";
+
 function uniq(arr) {
   return Array.from(new Set(arr));
 }
@@ -44,6 +47,48 @@ function getThumbnailUrl(videoId) {
 
 function getThumbnailFallbackUrl(videoId) {
   return `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
+}
+
+function unlockSite() {
+  document.body.classList.remove("is-locked");
+}
+
+function initAccessGate(onUnlocked) {
+  const gate = $("#accessGate");
+  const form = $("#accessForm");
+  const input = $("#accessPassword");
+  const error = $("#accessError");
+
+  if (!gate || !form || !input || !error) {
+    unlockSite();
+    onUnlocked();
+    return;
+  }
+
+  if (sessionStorage.getItem(ACCESS_KEY) === "1") {
+    unlockSite();
+    onUnlocked();
+    return;
+  }
+
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const ok = input.value === SITE_PASSWORD;
+
+    if (!ok) {
+      error.textContent = "パスワードが違います。";
+      input.select();
+      return;
+    }
+
+    sessionStorage.setItem(ACCESS_KEY, "1");
+    error.textContent = "";
+    input.value = "";
+    unlockSite();
+    onUnlocked();
+  });
+
+  setTimeout(() => input.focus(), 0);
 }
 
 function buildFilters() {
@@ -166,8 +211,12 @@ function initMeta() {
   updated.textContent = `${yyyy}-${mm}-${dd}`;
 }
 
-document.addEventListener("DOMContentLoaded", () => {
+function initSite() {
   initMeta();
   buildFilters();
   renderWorks();
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  initAccessGate(initSite);
 });

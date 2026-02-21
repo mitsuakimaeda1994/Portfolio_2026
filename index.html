@@ -13,7 +13,20 @@
   <link rel="stylesheet" href="./style.css" />
 </head>
 
-<body>
+<body class="is-locked">
+  <div id="accessGate" class="accessGate">
+    <form id="accessForm" class="accessCard">
+      <p class="accessKicker">Private Portfolio</p>
+      <h1 class="accessTitle">Access Required</h1>
+      <p class="accessLead">パスワードを入力してください。</p>
+      <label class="accessLabel" for="accessPassword">Password</label>
+      <input id="accessPassword" class="accessInput" type="password" autocomplete="current-password" required />
+      <button type="submit" class="accessBtn">Enter</button>
+      <p id="accessError" class="accessError" role="alert" aria-live="polite"></p>
+    </form>
+  </div>
+
+  <div id="siteContent">
   <header class="top">
     <nav class="nav">
       <a class="brand" href="#">
@@ -157,6 +170,7 @@
   <footer class="footer">
     <p class="muted">© <span id="year"></span> Mitsuaki Maeda</p>
   </footer>
+  </div>
 
   <script src="./data.js"></script>
   <script src="./main.js"></script>
