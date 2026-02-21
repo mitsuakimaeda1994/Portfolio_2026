@@ -102,6 +102,24 @@ main,
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 40px;
+  align-items: stretch;
+}
+
+.heroText,
+.heroCard {
+  height: 100%;
+}
+
+.heroText {
+  display: grid;
+  grid-template-rows: 1fr auto;
+  align-items: center;
+}
+
+.heroCard {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .kicker {
@@ -161,8 +179,14 @@ main,
   border-bottom-color: var(--muted);
 }
 
+.heroIntro {
+  align-self: center;
+}
+
 .meta {
-  margin-top: 22px;
+  width: 100%;
+  margin-top: 0;
+  padding-top: 22px;
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
