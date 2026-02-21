@@ -30,7 +30,10 @@
       <div class="heroText">
         <p class="kicker">Videographer / Technical Director / AI VFX Artist</p>
 
-        <h1>YOUR NAME</h1>
+        <h1 class="name">
+          <span class="nameEn">Mitsuaki Maeda</span>
+          <span class="nameJa">前田 光明</span>
+        </h1>
 
         <p class="headline">
           撮影、AI VFX、UE5プレビズを軸に、映像制作の技術設計と実制作を行っています。
@@ -76,11 +79,10 @@
   </header>
 
   <main>
-    <!-- Works -->
     <section id="works" class="section">
       <div class="sectionHead">
         <h2>Works</h2>
-        <p class="muted">カードをクリックすると詳細が開き、YouTubeが再生されます。</p>
+        <p class="muted">各カード内でYouTubeを直接再生できます。</p>
       </div>
 
       <div class="filters" id="filters"></div>
@@ -91,7 +93,6 @@
       </div>
     </section>
 
-    <!-- Skills -->
     <section id="skills" class="section">
       <div class="sectionHead">
         <h2>Skills</h2>
@@ -108,7 +109,6 @@
       </div>
     </section>
 
-    <!-- About -->
     <section id="about" class="section">
       <div class="sectionHead">
         <h2>About</h2>
@@ -137,7 +137,6 @@
       </div>
     </section>
 
-    <!-- Experience -->
     <section id="experience" class="section">
       <div class="sectionHead">
         <h2>Experience</h2>
@@ -175,7 +174,6 @@
       </div>
     </section>
 
-    <!-- Contact -->
     <section id="contact" class="section">
       <div class="sectionHead">
         <h2>Contact</h2>
@@ -191,27 +189,8 @@
     </section>
   </main>
 
-  <!-- Modal -->
-  <dialog id="modal" class="modal">
-    <form method="dialog" class="modalInner">
-      <button class="close" aria-label="close">×</button>
-      <div class="modalBody">
-        <h3 id="mTitle"></h3>
-        <p id="mDesc" class="muted"></p>
-
-        <div class="videoWrap">
-          <iframe id="mPlayer" src="" title="YouTube player" frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen></iframe>
-        </div>
-
-        <div class="tags" id="mTags"></div>
-      </div>
-    </form>
-  </dialog>
-
   <footer class="footer">
-    <p class="muted">© <span id="year"></span> YOUR NAME</p>
+    <p class="muted">© <span id="year"></span> Mitsuaki Maeda</p>
   </footer>
 
   <script src="./data.js"></script>
