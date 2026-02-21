@@ -60,9 +60,24 @@ main,
 }
 
 .brand {
-  font-size: 14px;
-  font-weight: 700;
-  letter-spacing: 0.06em;
+  display: inline-flex;
+  flex-direction: column;
+  gap: 1px;
+  line-height: 1;
+}
+
+.brandMain {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 28px;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+}
+
+.brandSub {
+  font-size: 10px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--muted);
 }
 
 .navlinks {
@@ -422,5 +437,9 @@ main {
 
   .navlinks {
     gap: 10px;
+  }
+
+  .brandMain {
+    font-size: 24px;
   }
 }
