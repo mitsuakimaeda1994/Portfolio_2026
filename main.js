@@ -51,37 +51,37 @@ function buildFilters() {
   if (!wrap) return;
 
   const works = getWorks();
-  const allTags = works.flatMap((w) => w.tags || []);
-  const tags = uniq(allTags).sort((a, b) => a.localeCompare(b));
-  const items = ["All", ...tags];
+  const mediaList = works.map((w) => (w.media || "").trim()).filter(Boolean);
+  const medias = uniq(mediaList).sort((a, b) => a.localeCompare(b));
+  const items = ["All", ...medias];
 
   wrap.innerHTML = "";
-  items.forEach((t, i) => {
+  items.forEach((media, i) => {
     const btn = document.createElement("button");
     btn.type = "button";
     btn.className = "filterBtn" + (i === 0 ? " active" : "");
-    btn.textContent = t;
-    btn.dataset.tag = t;
+    btn.textContent = media;
+    btn.dataset.media = media;
 
     btn.addEventListener("click", () => {
       wrap.querySelectorAll(".filterBtn").forEach((b) => b.classList.remove("active"));
       btn.classList.add("active");
-      renderWorks(t === "All" ? null : t);
+      renderWorks(media === "All" ? null : media);
     });
 
     wrap.appendChild(btn);
   });
 }
 
-function renderWorks(filterTag = null) {
+function renderWorks(filterMedia = null) {
   const grid = $("#worksGrid");
   if (!grid) return;
 
   grid.innerHTML = "";
 
   const works = getWorks();
-  const list = filterTag
-    ? works.filter((w) => (w.tags || []).includes(filterTag))
+  const list = filterMedia
+    ? works.filter((w) => (w.media || "").trim() === filterMedia)
     : works;
 
   list.forEach((w) => {
@@ -120,22 +120,30 @@ function renderWorks(filterTag = null) {
     h.className = "workTitle";
     h.textContent = w.title || "Untitled";
 
+    const meta = document.createElement("div");
+    meta.className = "workMeta";
+
+    if (w.year) {
+      const year = document.createElement("span");
+      year.className = "workMetaItem";
+      year.textContent = `${w.year}`;
+      meta.appendChild(year);
+    }
+
+    if (w.media) {
+      const media = document.createElement("span");
+      media.className = "workMetaItem";
+      media.textContent = w.media;
+      meta.appendChild(media);
+    }
+
     const p = document.createElement("p");
     p.className = "workDesc";
     p.textContent = w.desc || "";
 
-    const tags = document.createElement("div");
-    tags.className = "tags";
-    (w.tags || []).forEach((t) => {
-      const s = document.createElement("span");
-      s.className = "tag";
-      s.textContent = t;
-      tags.appendChild(s);
-    });
-
     body.appendChild(h);
+    if (meta.children.length > 0) body.appendChild(meta);
     body.appendChild(p);
-    body.appendChild(tags);
 
     card.appendChild(link);
     card.appendChild(body);

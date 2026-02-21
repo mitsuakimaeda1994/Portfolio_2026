@@ -307,12 +307,33 @@ main {
 }
 
 .workTitle {
-  margin: 0 0 4px;
+  margin: 0;
   font-size: 15px;
 }
 
+.workMeta {
+  margin-top: 6px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.workMetaItem {
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  color: #4a4a4a;
+  text-transform: uppercase;
+}
+
+.workMetaItem:not(:last-child) {
+  padding-right: 8px;
+  border-right: 1px solid #c8c8c8;
+}
+
+
 .workDesc {
-  margin: 0;
+  margin: 8px 0 0;
   font-size: 13px;
   color: var(--muted);
   display: -webkit-box;
