@@ -19,25 +19,25 @@ window.WORKS = [
     desc: "UE5でのプレビズ。カメラ・ルック・ライティング検証。",
     youtubeId: "FLZVzfMqqD4?si=emfZRd9sk8ALdEZu",
     tags: ["UE5", "Previz", "Sequencer"]
-  }
+  },
   {
     title: "社内PV-konika(stu)",
     desc: "UE5でのプレビズ。カメラ・ルック・ライティング検証。",
     youtubeId: "b4G3XYhJrl4?si=ztuWL5ovVQnWroqW",
     tags: ["UE5", "Previz", "Sequencer"]
-  }
+  },
   {
     title: "社内PV-YAMAHA(stu)",
     desc: "UE5でのプレビズ。カメラ・ルック・ライティング検証。",
     youtubeId: "te5t7_c2OxU?si=kGuYENw8HXthPZoj",
     tags: ["UE5", "Previz", "Sequencer"]
-  }
+  },
   {
     title: "社内PV(SRTA)",
     desc: "UE5でのプレビズ。カメラ・ルック・ライティング検証。",
     youtubeId: "LMSIM4CIqjk?si=8xg6WqwxZ_sbO0AZ",
     tags: ["UE5", "Previz", "Sequencer"]
-  }
+  },
   {
     title: "Replay Project-Cover Artist (au)",
     desc: "UE5でのプレビズ。カメラ・ルック・ライティング検証。",
