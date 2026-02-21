@@ -294,7 +294,7 @@ main {
   margin-top: 26px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 30px;
+  gap: 15px;
 }
 
 .workCard {
