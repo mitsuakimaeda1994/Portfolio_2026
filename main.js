@@ -89,7 +89,7 @@ function renderWorks(filterTag = null) {
     playerWrap.className = "videoWrap";
 
     const iframe = document.createElement("iframe");
-    iframe.src = `https://www.youtube.com/embed/?rel=0&modestbranding=1&playsinline=1&iv_load_policy=3`;
+    iframe.src = `https://www.youtube.com/embed/${videoId}?rel=0&modestbranding=1&playsinline=1&iv_load_policy=3`;
     iframe.title = w.title || "YouTube video";
     iframe.loading = "lazy";
     iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
