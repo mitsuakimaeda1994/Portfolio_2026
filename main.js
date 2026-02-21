@@ -1,6 +1,5 @@
 const $ = (q) => document.querySelector(q);
 
-const ACCESS_KEY = "portfolio_access_ok";
 const SITE_PASSWORD = "pf_mm";
 
 function uniq(arr) {
@@ -64,13 +63,6 @@ function initAccessGate(onUnlocked) {
     onUnlocked();
     return;
   }
-
-  if (sessionStorage.getItem(ACCESS_KEY) === "1") {
-    unlockSite();
-    onUnlocked();
-    return;
-  }
-
   form.addEventListener("submit", (e) => {
     e.preventDefault();
     const ok = input.value === SITE_PASSWORD;
@@ -81,7 +73,6 @@ function initAccessGate(onUnlocked) {
       return;
     }
 
-    sessionStorage.setItem(ACCESS_KEY, "1");
     error.textContent = "";
     input.value = "";
     unlockSite();
