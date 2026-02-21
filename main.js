@@ -4,11 +4,48 @@ function uniq(arr) {
   return Array.from(new Set(arr));
 }
 
+function getWorks() {
+  return Array.isArray(window.WORKS) ? window.WORKS : [];
+}
+
+function normalizeYouTubeId(value) {
+  if (!value) return "";
+  const raw = String(value).trim();
+
+  // すでにIDの場合（共有URLの ?si= などはここで除去）
+  if (!raw.includes("youtube.com") && !raw.includes("youtu.be")) {
+    return raw.split("?")[0].split("&")[0].trim();
+  }
+
+  try {
+    const url = new URL(raw);
+    const host = url.hostname.replace(/^www\./, "");
+
+    if (host === "youtu.be") {
+      return url.pathname.replace(/^\//, "").split("/")[0];
+    }
+
+    if (host === "youtube.com" || host === "m.youtube.com") {
+      if (url.searchParams.get("v")) return url.searchParams.get("v");
+
+      const parts = url.pathname.split("/").filter(Boolean);
+      const markerIndex = parts.findIndex((p) => p === "embed" || p === "shorts" || p === "live");
+      if (markerIndex >= 0 && parts[markerIndex + 1]) return parts[markerIndex + 1];
+    }
+  } catch {
+    // URLとして解釈できない場合はIDとして扱う
+    return raw.split("?")[0].split("&")[0].trim();
+  }
+
+  return "";
+}
+
 function buildFilters() {
   const wrap = $("#filters");
   if (!wrap) return;
 
-  const allTags = window.WORKS.flatMap((w) => w.tags || []);
+  const works = getWorks();
+  const allTags = works.flatMap((w) => w.tags || []);
   const tags = uniq(allTags).sort((a, b) => a.localeCompare(b));
   const items = ["All", ...tags];
 
@@ -36,11 +73,15 @@ function renderWorks(filterTag = null) {
 
   grid.innerHTML = "";
 
+  const works = getWorks();
   const list = filterTag
-    ? window.WORKS.filter((w) => (w.tags || []).includes(filterTag))
-    : window.WORKS;
+    ? works.filter((w) => (w.tags || []).includes(filterTag))
+    : works;
 
   list.forEach((w) => {
+    const videoId = normalizeYouTubeId(w.youtubeId || w.youtubeUrl || w.url || "");
+    if (!videoId) return;
+
     const card = document.createElement("article");
     card.className = "workCard";
 
@@ -48,8 +89,8 @@ function renderWorks(filterTag = null) {
     playerWrap.className = "videoWrap";
 
     const iframe = document.createElement("iframe");
-    iframe.src = `https://www.youtube.com/embed/${w.youtubeId}`;
-    iframe.title = w.title;
+    iframe.src = `https://www.youtube.com/embed/?rel=0&modestbranding=1&playsinline=1&iv_load_policy=3`;
+    iframe.title = w.title || "YouTube video";
     iframe.loading = "lazy";
     iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
     iframe.allowFullscreen = true;
@@ -61,11 +102,11 @@ function renderWorks(filterTag = null) {
 
     const h = document.createElement("h3");
     h.className = "workTitle";
-    h.textContent = w.title;
+    h.textContent = w.title || "Untitled";
 
     const p = document.createElement("p");
     p.className = "workDesc";
-    p.textContent = w.desc;
+    p.textContent = w.desc || "";
 
     const tags = document.createElement("div");
     tags.className = "tags";

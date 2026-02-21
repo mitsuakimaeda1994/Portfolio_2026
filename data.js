@@ -3,7 +3,7 @@
 
 window.WORKS = [
   {
-    title: "Cinematography Reel",
+    title: "Global Hit Maker(NHK)",
     desc: "撮影 / 画作り / 照明。実写の質感と設計をまとめたリール。",
     youtubeId: "AOrnsHqWgLE?si=xEywWoIahEWn3E1_",
     tags: ["Cinematography", "On-set", "Lighting"]
