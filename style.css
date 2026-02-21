@@ -250,6 +250,10 @@ main {
   padding: 30px 0;
 }
 
+.section > :not(.sectionHead) {
+  margin-left: 14px;
+}
+
 .sectionHead h2 {
   font-family: "Cormorant Garamond", Georgia, serif;
   font-size: 24px;
@@ -432,7 +436,7 @@ main {
 }
 
 .videoLink:hover .videoThumb {
-  transform: scale(1.02);
+  transform: scale(1.05);
 }
 
 .videoLink:focus-visible {
@@ -524,6 +528,10 @@ main {
 }
 
 @media (max-width: 560px) {
+  .section > :not(.sectionHead) {
+    margin-left: 8px;
+  }
+
   .top,
   main,
   .footer {
