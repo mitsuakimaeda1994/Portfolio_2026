@@ -15,7 +15,7 @@ window.WORKS = [
     title: "au - Replay Project-Histry Movie",
     desc: "Videographer",
     youtubeId: "dz65VPfQbxQ?si=6PcYNAOYaWogZVAw",
-    year: "2024",
+    year: "2025",
     media: "Youtube",
     tags: ["Videographer"]
   },
@@ -23,7 +23,7 @@ window.WORKS = [
     title: "NHK - YOKAI:YAROKAMIZU",
     desc: "Videographer",
     youtubeId: "FLZVzfMqqD4?si=emfZRd9sk8ALdEZu",
-    year: "2023",
+    year: "2025",
     media: "TV",
     tags: ["Videographer"]
   },
@@ -31,7 +31,7 @@ window.WORKS = [
     title: "stu - 社内PV(コニカミノルタ)",
     desc: "Videographer",
     youtubeId: "b4G3XYhJrl4?si=ztuWL5ovVQnWroqW",
-    year: "2024",
+    year: "2025",
     media: "Web",
     tags: ["Videographer"]
   },
@@ -39,7 +39,7 @@ window.WORKS = [
     title: "stu - 社内PV (YAMAHA)",
     desc: "Videographer",
     youtubeId: "te5t7_c2OxU?si=kGuYENw8HXthPZoj",
-    year: "2024",
+    year: "2025",
     media: "Web",
     tags: ["Videographer"]
   },
@@ -47,15 +47,15 @@ window.WORKS = [
     title: "SRTA - 社内PV",
     desc: "AI Artist",
     youtubeId: "LMSIM4CIqjk?si=8xg6WqwxZ_sbO0AZ",
-    year: "2024",
+    year: "2025",
     media: "Web",
     tags: ["AI Artist"]
   },
   {
     title: "au - Replay Project-Cover Artist",
     desc: "Videographer",
-    youtubeId: "mjZO5J-o9EM?si=JkorCKLlp3zlAUZ5",
-    year: "2024",
+    youtubeId: "mjZO5J-o9EM?si=XDm20QQfXS5NTl8f",
+    year: "2025",
     media: "Youtube",
     tags: ["Videographer"]
   }
