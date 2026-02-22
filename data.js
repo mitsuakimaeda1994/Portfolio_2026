@@ -36,7 +36,7 @@ window.WORKS = [
     tags: ["Videographer"]
   },
   {
-    title: "stu - 社内PV (YAMAHA)",
+    title: "stu - 社内works映像 (YAMAHA),
     desc: "Videographer",
     youtubeId: "te5t7_c2OxU?si=kGuYENw8HXthPZoj",
     year: "2025",
