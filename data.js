@@ -28,7 +28,7 @@ window.WORKS = [
     tags: ["Videographer"]
   },
   {
-    title: "stu - 社内PV(コニカミノルタ)",
+    title: "stu - 社内works映像 (コニカミノルタ)",
     desc: "Videographer",
     youtubeId: "b4G3XYhJrl4?si=ztuWL5ovVQnWroqW",
     year: "2025",
@@ -36,7 +36,7 @@ window.WORKS = [
     tags: ["Videographer"]
   },
   {
-    title: "stu - 社内works映像 (YAMAHA),
+    title: "stu - 社内works映像 (YAMAHA)",
     desc: "Videographer",
     youtubeId: "te5t7_c2OxU?si=kGuYENw8HXthPZoj",
     year: "2025",
