@@ -19,6 +19,14 @@ window.WORKS = [
     media: "TV",
     tags: ["Videographer"]
   },
+    {
+      title: "CX - 119エマージェンシーコール2026 YOKOHAMA BLACKOUT",
+      desc: "Videographer",
+      youtubeId: "91JIVwW6ff4?si=rx5hzgaW78w-5qiZ",
+      year: "2026",
+      media: "TV",
+      tags: ["AI VFX Supervisor"]
+    },
   {
     title: "au - Replay Project-Histry Movie",
     desc: "Videographer",

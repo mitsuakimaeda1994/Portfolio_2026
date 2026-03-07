@@ -13,6 +13,7 @@ html,
 body {
   margin: 0;
   padding: 0;
+  overflow-x: hidden;
 }
 
 body {
@@ -133,14 +134,14 @@ body:not(.is-locked) #accessGate {
 .top,
 main,
 .footer {
-  padding-left: 24px;
-  padding-right: 24px;
+  padding-left: 16px;
+  padding-right: 16px;
 }
 
 .nav,
 .hero,
 .section {
-  max-width: 980px;
+  max-width: 1280px;
   margin: 0 auto;
 }
 
@@ -330,7 +331,7 @@ main {
 }
 
 .section > :not(.sectionHead) {
-  margin-left: 14px;
+  padding-left: 14px;
 }
 
 .sectionHead h2 {
@@ -376,7 +377,7 @@ main {
 .grid {
   margin-top: 26px;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 15px;
 }
 
@@ -608,7 +609,7 @@ main {
 
 @media (max-width: 560px) {
   .section > :not(.sectionHead) {
-    margin-left: 8px;
+    padding-left: 8px;
   }
 
   .top,
