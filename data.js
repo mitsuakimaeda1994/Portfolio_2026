@@ -3,6 +3,14 @@
 // year: 公開年, media: 媒体（TV / SNS / Web など）
 
 window.WORKS = [
+    {
+    title: "NHK - 高橋一生、声を聴く",
+    desc: "Videographer",
+    youtubeId: "AChg8i9uz_w?si=RRPoxiV-s0_G0Yuq",
+    year: "2025",
+    media: "TV",
+    tags: ["Videographer"]
+  },
   {
     title: "NHK - グローバルヒットメーカー",
     desc: "Videographer",
@@ -57,6 +65,14 @@ window.WORKS = [
     youtubeId: "mjZO5J-o9EM?si=XDm20QQfXS5NTl8f",
     year: "2025",
     media: "Youtube",
+    tags: ["Videographer"]
+  },
+    {
+    title: "NHK - ドキュメント72時間「能登半島 桜咲く無人駅で」",
+    desc: "Videographer",
+    youtubeId: "ODqjbHJAwbg?si=M9pAqv5TXSnclfEz",
+    year: "2021",
+    media: "TV",
     tags: ["Videographer"]
   }
 ];
