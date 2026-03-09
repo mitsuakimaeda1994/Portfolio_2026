@@ -6,7 +6,7 @@ window.WORKS = [
     {
     title: "NHK - 高橋一生、声を聴く",
     desc: "Videographer",
-    youtubeId: "AChg8i9uz_w?si=RRPoxiV-s0_G0Yuq",
+    youtubeId: "lyc3rdMi4yE?si=ILvqCcnsAebUSbKr",
     year: "2025",
     media: "TV",
     tags: ["Videographer"]
