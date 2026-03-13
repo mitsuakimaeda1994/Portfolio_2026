@@ -4,6 +4,14 @@
 
 window.WORKS = [
     {
+        title: "Youtubeチャンネル Storyboard",
+        desc: "Technical Director, Videographer",
+        youtubeId: "EnZKUe_nZMI?si=PyJTXkyvKm2EQAMo",
+        year: "2026",
+        media: "Youtube",
+        tags: ["Videographer, Technical Director"]
+    },
+    {
     title: "NHK - 高橋一生、声を聴く",
     desc: "Videographer",
     youtubeId: "lyc3rdMi4yE?si=ILvqCcnsAebUSbKr",
